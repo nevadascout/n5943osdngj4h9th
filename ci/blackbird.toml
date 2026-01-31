@@ -1,4 +1,5 @@
-runOn = { push = true, manual = false, schedule = false }
+# runOn = { push = true, manual = false, schedule = false }
+# notify = { slack = "webhookUrl" }
 
 pipeline = [
     "install",
@@ -12,31 +13,22 @@ pipeline = [
 
 [steps]
 [steps.install]
-agentImage = "todo-docker"
-cmd = "bash ./ci/build/install.sh"
+agentImage = "alpine:3.23"
+cmd = "sh ./ci/build/install.sh"
 
 [steps.test]
-agentImage = "todo-docker"
-cmd = [
-    "bash ./ci/build/test.sh"
-]
+agentImage = "alpine:3.23"
+cmd = "sh ./ci/build/test.sh"
 
 [steps.lint]
-agentImage = "todo-docker"
-cmd = [
-    "bash ./ci/build/lint.sh"
-]
+agentImage = "alpine:3.23"
+cmd = "sh ./ci/build/lint.sh"
 
 [steps.finalize]
-agentImage = "todo-docker"
-cmd = [
-    "bash ./ci/build/finalize.sh"
-]
-
+agentImage = "alpine:3.23"
+cmd = "sh ./ci/build/finalize.sh"
 
 [steps.release]
-agentImage = "todo-docker"
+agentImage = "alpine:3.23"
 whenBranch = "main"
-cmd = [
-    "bash ./ci/build/release.sh"
-]
+cmd = "sh ./ci/build/release.sh"
