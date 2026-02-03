@@ -3,32 +3,30 @@
 
 pipeline = [
     "install",
-    [
-        "test",
-        "lint"
-    ],
+    "test",
+    "lint",
     "finalize",
     "release"
 ]
 
 [steps]
 [steps.install]
-agentImage = "alpine:3.23"
+agentImage = "docker.io/alpine:3.23"
 cmd = "sh ./ci/build/install.sh"
 
 [steps.test]
-agentImage = "alpine:3.23"
+agentImage = "docker.io/alpine:3.23"
 cmd = "sh ./ci/build/test.sh"
 
 [steps.lint]
-agentImage = "alpine:3.23"
+agentImage = "docker.io/alpine:3.23"
 cmd = "sh ./ci/build/lint.sh"
 
 [steps.finalize]
-agentImage = "alpine:3.23"
+agentImage = "docker.io/alpine:3.23"
 cmd = "sh ./ci/build/finalize.sh"
 
 [steps.release]
-agentImage = "alpine:3.23"
+agentImage = "docker.io/alpine:3.23"
 whenBranch = "main"
 cmd = "sh ./ci/build/release.sh"
