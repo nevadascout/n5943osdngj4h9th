@@ -3,8 +3,7 @@
 
 pipeline = [
     "install",
-    "test",
-    "lint",
+    "test|lint",
     "finalize",
     "release"
 ]
